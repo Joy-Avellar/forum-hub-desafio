@@ -25,7 +25,8 @@ public class Topicos {
     private String mensagem;
 //    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime dataCriacao;
-    private Boolean estado_do_topico;
+
+    private Boolean ativo;
     private String autor;
     private String curso;
 
@@ -40,8 +41,18 @@ public class Topicos {
     public Topicos(DadosNovoTopico dados) {
         this.mensagem = dados.mensagem();
         this.titulo = dados.titulo();
-        this.estado_do_topico = true;
+        this.ativo = true;
         this.autor = dados.autor();
         this.curso = dados.curso();
+    }
+
+    public void atualizarInformacoes(DadosAtualizacaoTopicos dados) {
+        this.titulo = dados.titulo();
+        this.mensagem = dados.mensagem();
+        this.curso = dados.curso();
+    }
+
+    public void excluir() {
+        this.ativo = false;
     }
 }
